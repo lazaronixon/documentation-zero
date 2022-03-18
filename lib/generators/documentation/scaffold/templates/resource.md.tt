@@ -68,17 +68,18 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 ---
 
 ## Model
-```json
-{
+```mermaid
+classDiagram
+class <%= class_name %> {
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
-  "password_digest": "string",
+  string password_digest
 <% elsif attribute.token? -%>
-  "<%= attribute.column_name %>": "string",
+  string <%= attribute.column_name %>
 <% elsif attribute.reference? -%>
-  "<%= attribute.column_name %>": "integer",
+  integer <%= attribute.column_name %>
 <% elsif !attribute.virtual? -%>
-  "<%= attribute.column_name %>": "<%= attribute.type %>",
+  <%= attribute.type %> <%= attribute.column_name %>
 <% end -%>
 <% end -%>
 }

@@ -68,10 +68,11 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 ---
 
 ## Model
-```json
-{
-  "title": "string",
-  "content": "string",
-  "published": "boolean",
+```mermaid
+classDiagram
+class Post {
+  string title
+  string content
+  boolean published
 }
 ```
