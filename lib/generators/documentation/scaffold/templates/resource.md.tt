@@ -10,7 +10,7 @@ Endpoints:
 
 ## Get <%= human_name.pluralize.downcase %>
 
-- `GET /<%= plural_name %>.json` will return a [paginated list](../readme.md#pagination) of <%= human_name.pluralize.downcase %>.
+- `GET /<%= plural_name %>.json` will return a [paginated list](../README.md#pagination) of <%= human_name.pluralize.downcase %>.
 
 <!--
 _Optional query parameters_:

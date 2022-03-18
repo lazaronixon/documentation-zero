@@ -10,7 +10,7 @@ Endpoints:
 
 ## Get posts
 
-- `GET /posts.json` will return a [paginated list](../readme.md#pagination) of posts.
+- `GET /posts.json` will return a [paginated list](../README.md#pagination) of posts.
 
 <!--
 _Optional query parameters_:
