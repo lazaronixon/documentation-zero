@@ -55,8 +55,8 @@ This endpoint will return `200 OK` with the current JSON representation of the <
 
 _Optional parameters_:
 
-<% attributes.each do |attribute| -%>
-* `<%= attribute.column_name %>` - attribute from <%= human_name.downcase %>.
+<% attributes_names.each do |attribute| -%>
+* `<%= attribute %>` - attribute from <%= human_name.downcase %>.
 <% end -%>
 
 ## Delete <%= human_name.downcase %>
@@ -71,7 +71,15 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 ```json
 {
 <% attributes.each do |attribute| -%>
+<% if attribute.password_digest? -%>
+  "password_digest": "string",
+<% elsif attribute.token? -%>
+  "<%= attribute.column_name %>": "string",
+<% elsif attribute.reference? -%>
+  "<%= attribute.column_name %>": "integer",
+<% elsif !attribute.virtual? -%>
   "<%= attribute.column_name %>": "<%= attribute.type %>",
+<% end -%>
 <% end -%>
 }
 ```
