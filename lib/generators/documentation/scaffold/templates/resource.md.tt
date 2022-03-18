@@ -41,13 +41,13 @@ _Optional parameters_:
 * `<%= attribute.column_name %>` - attribute from <%= human_name.downcase %>.
 <% end -%>
 
-This endpoint will return `201 Created` with the current JSON representation of the <%= human_name.downcase %> if the creation was a success. See the [<%= human_name.downcase %>](#model) model for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the [<%= human_name.downcase %>](#model) if the creation was a success.
 
 ## Update <%= human_name.downcase %>
 
 - `PUT /<%= plural_name %>/1.json` allows changing the <%= human_name.downcase %> with an ID of `1`.
 
-This endpoint will return `200 OK` with the current JSON representation of the <%= human_name.downcase %> if the update was a success. See the [<%= human_name.downcase %>](#model) model for more info on the payload.
+This endpoint will return `200 OK` with the current JSON representation of the [<%= human_name.downcase %>](#model) if the update was a success.
 
 <!--
 **Required parameters**: `attribute1` and `attribute2`.

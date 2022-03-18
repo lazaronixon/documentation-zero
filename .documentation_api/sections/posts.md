@@ -41,13 +41,13 @@ _Optional parameters_:
 * `content` - attribute from post.
 * `published` - attribute from post.
 
-This endpoint will return `201 Created` with the current JSON representation of the post if the creation was a success. See the [post](#model) model for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the [post](#model) if the creation was a success.
 
 ## Update post
 
 - `PUT /posts/1.json` allows changing the post with an ID of `1`.
 
-This endpoint will return `200 OK` with the current JSON representation of the post if the update was a success. See the [post](#model) model for more info on the payload.
+This endpoint will return `200 OK` with the current JSON representation of the [post](#model) if the update was a success.
 
 <!--
 **Required parameters**: `attribute1` and `attribute2`.
