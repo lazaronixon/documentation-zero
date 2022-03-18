@@ -1,0 +1,77 @@
+# <%= human_name.pluralize %>
+
+Endpoints:
+
+- [Get <%= human_name.pluralize.downcase %>](#get-<%= plural_name.dasherize %>)
+- [Get <%= human_name.downcase %>](#get-<%= singular_name.dasherize %>)
+- [Create <%= human_name.downcase %>](#create-<%= singular_name.dasherize %>)
+- [Update <%= human_name.downcase %>](#update-<%= singular_name.dasherize %>)
+- [Delete <%= human_name.downcase %>](#delete-<%= singular_name.dasherize %>)
+
+## Get <%= human_name.pluralize.downcase %>
+
+- `GET /<%= plural_name %>.json` will return a [paginated list](../readme.md#pagination) of <%= human_name.pluralize.downcase %>.
+
+<!--
+_Optional query parameters_:
+
+* `attribute1` - when set to true, will only return resources that are completed.
+* `attribute2` - when set to true, will only return resources that are completed.
+-->
+
+See the [<%= human_name.downcase %>](#model) model for more info on the response payload.
+
+## Get <%= human_name.downcase %>
+
+- `GET /<%= plural_name %>/1.json` will return the <%= human_name.downcase %> with an ID of `1`.
+
+See the [<%= human_name.downcase %>](#model) model for more info on the response payload.
+
+## Create <%= human_name.downcase %>
+
+- `POST /<%= plural_name %>.json` creates <%= human_name.downcase %>.
+
+<!--
+**Required parameters**: `attribute1` and `attribute2`.
+-->
+
+_Optional parameters_:
+
+<% attributes.each do |attribute| -%>
+* `<%= attribute.column_name %>` - attribute from <%= human_name.downcase %>.
+<% end -%>
+
+This endpoint will return `201 Created` with the current JSON representation of the <%= human_name.downcase %> if the creation was a success. See the [<%= human_name.downcase %>](#model) model for more info on the payload.
+
+## Update <%= human_name.downcase %>
+
+- `PUT /<%= plural_name %>/1.json` allows changing the <%= human_name.downcase %> with an ID of `1`.
+
+This endpoint will return `200 OK` with the current JSON representation of the <%= human_name.downcase %> if the update was a success. See the [<%= human_name.downcase %>](#model) model for more info on the payload.
+
+<!--
+**Required parameters**: `attribute1` and `attribute2`.
+-->
+
+_Optional parameters_:
+
+<% attributes.each do |attribute| -%>
+* `<%= attribute.column_name %>` - attribute from <%= human_name.downcase %>.
+<% end -%>
+
+## Delete <%= human_name.downcase %>
+
+- `DELETE /<%= plural_name %>/1.json` will delete the <%= human_name.downcase %> with an ID of `1`.
+
+This endpoint will return `204 No Content` if successful. No parameters are required.
+
+---
+
+## Model
+```javascript
+{
+<% attributes.each do |attribute| -%>
+  <%= attribute.column_name %>: "<%= attribute.type %>",
+<% end -%>
+}
+```

@@ -1,6 +1,6 @@
-# The <_APP_NAME_> API
+# The <%= application_name.humanize %> API
 
-Welcome to the <_APP_NAME_> API! If you're looking to integrate your application with <_APP_NAME_> or create your own application in concert with data inside of <_APP_NAME_>, you're in the right place. We're happy to have you!
+Welcome to the <%= application_name.humanize %> API! If you're looking to integrate your application with <%= application_name.humanize %> or create your own application in concert with data inside of <%= application_name.humanize %>, you're in the right place. We're happy to have you!
 
 ## Making a request
 
@@ -28,13 +28,13 @@ If you don't include a `User-Agent` header, you'll get a `400 Bad Request` respo
 
 ## JSON only
 
-We use JSON for all API data. The style is no root element and snake\_case for object keys. This means that you have to send the `Content-Type` header `Content-Type: application/json; charset=utf-8` when you're POSTing or PUTing data into <_APP_NAME_>. All API URLs end in `.json` to indicate that they return JSON. Alternatively you can send `Accept: application/json`.
+We use JSON for all API data. The style is no root element and snake\_case for object keys. This means that you have to send the `Content-Type` header `Content-Type: application/json; charset=utf-8` when you're POSTing or PUTing data into <%= application_name.humanize %>. All API URLs end in `.json` to indicate that they return JSON. Alternatively you can send `Accept: application/json`.
 
 You'll receive a `415 Unsupported Media Type` response code if you don't include the `Content-Type` header.
 
 ## Pagination
 
-Most collection APIs paginate their results. The number of requests that'll appear on each page is variable. In most cases, we use a [geared pagination ratio](https://github.com/basecamp/geared_pagination) with 15 results on page 1, 30 on page 2, 50 on 3, and then 100 on 4 and above. The <_APP_NAME_> API follows the [RFC5988 convention](https://tools.ietf.org/html/rfc5988) of using the `Link` header to provide URLs for the `next` page. Follow this convention to retrieve the next page of data—please don't build the pagination URLs yourself!
+Most collection APIs paginate their results. The number of requests that'll appear on each page is variable. In most cases, we use a [geared pagination ratio](https://github.com/basecamp/geared_pagination) with 15 results on page 1, 30 on page 2, 50 on 3, and then 100 on 4 and above. The <%= application_name.humanize %> API follows the [RFC5988 convention](https://tools.ietf.org/html/rfc5988) of using the `Link` header to provide URLs for the `next` page. Follow this convention to retrieve the next page of data—please don't build the pagination URLs yourself!
 
 Here's an example response header from requesting the third page of some resource:
 
@@ -42,7 +42,7 @@ Here's an example response header from requesting the third page of some resourc
 Link: <https://example.com/api/resources.json?page=4>; rel="next"
 ```
 
-If the `Link` header is blank, that's the last page. The <_APP_NAME_> API also provides the `X-Total-Count` header, which displays the total number of resources in the collection you are fetching.
+If the `Link` header is blank, that's the last page. The <%= application_name.humanize %> API also provides the `X-Total-Count` header, which displays the total number of resources in the collection you are fetching.
 
 ## Using HTTP caching
 
@@ -58,13 +58,14 @@ You can perform up to 50 requests per 10-second period from the same IP address.
 
 ### [5xx server errors](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_Server_errors)
 
-If <_APP_NAME_> is having trouble, you will get a response with a 5xx status code indicating a server error. 500 (Internal Server Error), 502 (Bad Gateway), 503 (Service Unavailable), and 504 (Gateway Timeout) may be retried with [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff).
+If <%= application_name.humanize %> is having trouble, you will get a response with a 5xx status code indicating a server error. 500 (Internal Server Error), 502 (Bad Gateway), 503 (Service Unavailable), and 504 (Gateway Timeout) may be retried with [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff).
 
 ### 404 Not Found
 
-API requests may 404 due to deleted content, an inactive account, missing user permissions, etc. Detect these conditions to give your users a clear explanation about why they can't connect to <_APP_NAME_>. Do not automatically retry these requests.
+API requests may 404 due to deleted content, an inactive account, missing user permissions, etc. Detect these conditions to give your users a clear explanation about why they can't connect to <%= application_name.humanize %>. Do not automatically retry these requests.
 
 ## API endpoints
+
 <!-- START API ENDPOINTS -->
 
 <!-- END API ENDPOINTS -->
@@ -73,4 +74,4 @@ API requests may 404 due to deleted content, an inactive account, missing user p
 
 If you have a specific feature request or find a bug, please open a GitHub issue. We encourage you to fork these docs for local reference and happily accept pull requests with improvements.
 
-To talk with us and other developers about the API, [post a question on StackOverflow](http://stackoverflow.com/questions/ask) tagged `<_APP_NAME_>`. If you need help from us directly, please open a support ticket.
+To talk with us and other developers about the API, [post a question on StackOverflow](http://stackoverflow.com/questions/ask) tagged `<%= application_name.dasherize %>`. If you need help from us directly, please open a support ticket.
