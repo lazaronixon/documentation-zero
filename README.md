@@ -2,6 +2,10 @@
 
 The purpose of documentation zero is to generate a scaffold for rails api documentations using markdown.
 
+## Example
+
+You can see an example of the generated documentation [here](.documentation_api/README.md)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,7 +24,7 @@ rails generate documentation:readme
 rails generate documentation:scaffold posts title:string body:text published:boolean
 ```
 
-Add ```- [Posts](.documentation-api/sections/posts.md)``` to API endpoints section.
+Add ```- [Posts](sections/posts.md)``` to API endpoints section.
 
 ## Development
 
