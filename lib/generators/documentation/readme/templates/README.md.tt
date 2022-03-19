@@ -12,6 +12,10 @@ To make a request for all the resources on your account, append the `resources` 
 curl -H "Authorization: Bearer $ACCESS_TOKEN" -H 'User-Agent: MyApp (yourname@example.com)' https://example.com/api/resources.json
 ```
 
+## Authentication
+
+Describe your authentication here.
+
 ## Identifying your application
 
 You must include a `User-Agent` header with **both**:
@@ -63,6 +67,9 @@ If <%= application_name.humanize %> is having trouble, you will get a response w
 ### 404 Not Found
 
 API requests may 404 due to deleted content, an inactive account, missing user permissions, etc. Detect these conditions to give your users a clear explanation about why they can't connect to <%= application_name.humanize %>. Do not automatically retry these requests.
+
+* Inactive account. 404 Not Found response with a `Reason: Account Inactive` header. Due to an expired trial or account suspension. All API requests to an inactive account will fail, so we recommend detecting and disabling the account in your integration as well.
+* Inaccessible items. 404 Not Found response. Due to a deleted item or insufficient permissions.
 
 ## API endpoints
 
