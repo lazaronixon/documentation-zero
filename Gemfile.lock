@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    documentation-zero (0.0.5)
+    documentation-zero (0.0.6)
 
 GEM
   remote: https://rubygems.org/
