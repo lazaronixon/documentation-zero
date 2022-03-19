@@ -19,8 +19,8 @@ Models:
 <!--
 _Optional query parameters_:
 
-* `attribute1` - when set to true, will only return resources that are completed.
-* `attribute2` - when set to true, will only return resources that are completed.
+* `attribute1` - when set to true, will only return resources that...
+* `attribute2` - when set to true, will only return resources that...
 -->
 
 See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more info on the response payload.
@@ -36,13 +36,17 @@ See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more in
 - `POST /<%= plural_name %>.json` creates <%= human_name.downcase %>.
 
 <!--
-**Required parameters**: `attribute1` and `attribute2`.
+**Required parameters**:
+
+<% attributes.each do |attribute| -%>
+* `<%= attribute.column_name %>` - <%= attribute.name.humanize(capitalize: false) %> of the <%= human_name.downcase %>.
+<% end -%>
 -->
 
 _Optional parameters_:
 
 <% attributes.each do |attribute| -%>
-* `<%= attribute.column_name %>` - attribute from <%= human_name.downcase %>.
+* `<%= attribute.column_name %>` - <%= attribute.name.humanize(capitalize: false) %> of the <%= human_name.downcase %>.
 <% end -%>
 
 This endpoint will return `201 Created` with the current JSON representation of the <%= human_name.downcase %> if the creation was a success. See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more info on the payload.
@@ -51,17 +55,9 @@ This endpoint will return `201 Created` with the current JSON representation of 
 
 - `PUT /<%= plural_name %>/1.json` allows changing the <%= human_name.downcase %> with an ID of `1`.
 
+You may change any of the required or optional parameters as listed in the [create <%= human_name.downcase %>](#create-<%= singular_name.dasherize %>) endpoint.
+
 This endpoint will return `200 OK` with the current JSON representation of the <%= human_name.downcase %> if the update was a success. See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more info on the payload.
-
-<!--
-**Required parameters**: `attribute1` and `attribute2`.
--->
-
-_Optional parameters_:
-
-<% attributes_names.each do |attribute| -%>
-* `<%= attribute %>` - attribute from <%= human_name.downcase %>.
-<% end -%>
 
 ## Delete <%= human_name.downcase %>
 

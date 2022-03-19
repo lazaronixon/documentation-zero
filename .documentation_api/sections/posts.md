@@ -19,8 +19,8 @@ Models:
 <!--
 _Optional query parameters_:
 
-* `attribute1` - when set to true, will only return resources that are completed.
-* `attribute2` - when set to true, will only return resources that are completed.
+* `attribute1` - when set to true, will only return resources that...
+* `attribute2` - when set to true, will only return resources that...
 -->
 
 See the [Post model](#post-model) for more info on the response payload.
@@ -36,15 +36,20 @@ See the [Post model](#post-model) for more info on the response payload.
 - `POST /posts.json` creates post.
 
 <!--
-**Required parameters**: `attribute1` and `attribute2`.
+**Required parameters**:
+
+* `title` - title of the post.
+* `content` - content of the post.
+* `published` - published of the post.
+* `user_id` - user of the post.
 -->
 
 _Optional parameters_:
 
-* `title` - attribute from post.
-* `content` - attribute from post.
-* `published` - attribute from post.
-* `user_id` - attribute from post.
+* `title` - title of the post.
+* `content` - content of the post.
+* `published` - published of the post.
+* `user_id` - user of the post.
 
 This endpoint will return `201 Created` with the current JSON representation of the post if the creation was a success. See the [Post model](#post-model) for more info on the payload.
 
@@ -52,18 +57,9 @@ This endpoint will return `201 Created` with the current JSON representation of 
 
 - `PUT /posts/1.json` allows changing the post with an ID of `1`.
 
+You may change any of the required or optional parameters as listed in the [create post](#create-post) endpoint.
+
 This endpoint will return `200 OK` with the current JSON representation of the post if the update was a success. See the [Post model](#post-model) for more info on the payload.
-
-<!--
-**Required parameters**: `attribute1` and `attribute2`.
--->
-
-_Optional parameters_:
-
-* `title` - attribute from post.
-* `content` - attribute from post.
-* `published` - attribute from post.
-* `user_id` - attribute from post.
 
 ## Delete post
 
