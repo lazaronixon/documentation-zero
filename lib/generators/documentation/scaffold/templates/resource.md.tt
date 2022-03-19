@@ -8,6 +8,10 @@ Endpoints:
 - [Update <%= human_name.downcase %>](#update-<%= singular_name.dasherize %>)
 - [Delete <%= human_name.downcase %>](#delete-<%= singular_name.dasherize %>)
 
+Models:
+
+- [<%= class_name %> model](#<%= singular_name.dasherize %>-model)
+
 ## Get <%= human_name.pluralize.downcase %>
 
 - `GET /<%= plural_name %>.json` will return a [paginated list](../README.md#pagination) of <%= human_name.pluralize.downcase %>.
@@ -19,13 +23,13 @@ _Optional query parameters_:
 * `attribute2` - when set to true, will only return resources that are completed.
 -->
 
-See the [<%= human_name.downcase %>](#model) model for more info on the response payload.
+See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more info on the response payload.
 
 ## Get <%= human_name.downcase %>
 
 - `GET /<%= plural_name %>/1.json` will return the <%= human_name.downcase %> with an ID of `1`.
 
-See the [<%= human_name.downcase %>](#model) model for more info on the response payload.
+See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more info on the response payload.
 
 ## Create <%= human_name.downcase %>
 
@@ -41,13 +45,13 @@ _Optional parameters_:
 * `<%= attribute.column_name %>` - attribute from <%= human_name.downcase %>.
 <% end -%>
 
-This endpoint will return `201 Created` with the current JSON representation of the <%= human_name.downcase %> if the creation was a success. See the [<%= human_name.downcase %>](#model) model for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the <%= human_name.downcase %> if the creation was a success. See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more info on the payload.
 
 ## Update <%= human_name.downcase %>
 
 - `PUT /<%= plural_name %>/1.json` allows changing the <%= human_name.downcase %> with an ID of `1`.
 
-This endpoint will return `200 OK` with the current JSON representation of the <%= human_name.downcase %> if the update was a success. See the [<%= human_name.downcase %>](#model) model for more info on the payload.
+This endpoint will return `200 OK` with the current JSON representation of the <%= human_name.downcase %> if the update was a success. See the [<%= class_name %> model](#<%= class_name.downcase %>-model) for more info on the payload.
 
 <!--
 **Required parameters**: `attribute1` and `attribute2`.
@@ -67,19 +71,21 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 
 ---
 
-## Model
-```mermaid
-classDiagram
-class <%= class_name %> {
+## Models
+
+###### <%= class_name %> model
+
+```json
+{
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
-  string password_digest
+  "password_digest": "string",
 <% elsif attribute.token? -%>
-  string <%= attribute.column_name %>
+  "<%= attribute.name %>": "string",
 <% elsif attribute.reference? -%>
-  integer <%= attribute.column_name %>
+  "<%= attribute.name %>": "<%= attribute.name.pluralize %>.md#<%= attribute.name.dasherize %>-model",
 <% elsif !attribute.virtual? -%>
-  <%= attribute.type %> <%= attribute.column_name %>
+  "<%= attribute.name %>": "<%= attribute.type %>",
 <% end -%>
 <% end -%>
 }

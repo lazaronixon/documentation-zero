@@ -21,7 +21,7 @@ rails generate documentation:readme
 ```
 
 ```
-rails generate documentation:scaffold posts title:string body:text published:boolean
+rails generate documentation:scaffold posts title:string body:text published:boolean user:references
 ```
 
 Add ```- [Posts](sections/posts.md)``` to API endpoints section.
