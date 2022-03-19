@@ -77,9 +77,11 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 <% if attribute.password_digest? -%>
   "password_digest": "string",
 <% elsif attribute.token? -%>
-  "<%= attribute.name %>": "string",
+  "<%= attribute.column_name %>": "string",
+<% elsif attribute.reference? -%>
+  "<%= attribute.column_name %>": "integer",
 <% elsif !attribute.virtual? -%>
-  "<%= attribute.name %>": "<%= attribute.type %>",
+  "<%= attribute.column_name %>": "<%= attribute.type %>",
 <% end -%>
 <% end -%>
 }
