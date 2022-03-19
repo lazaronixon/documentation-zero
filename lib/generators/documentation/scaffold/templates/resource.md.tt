@@ -84,5 +84,7 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
   "<%= attribute.column_name %>": "<%= attribute.type %>",
 <% end -%>
 <% end -%>
+  "created_at": "datetime",
+  "updated_at": "datetime"
 }
 ```

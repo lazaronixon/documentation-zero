@@ -79,5 +79,7 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
   "content": "string",
   "published": "boolean",
   "user_id": "integer",
+  "created_at": "datetime",
+  "updated_at": "datetime"
 }
 ```
