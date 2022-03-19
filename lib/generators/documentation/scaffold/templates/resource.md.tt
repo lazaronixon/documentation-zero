@@ -78,8 +78,6 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
   "password_digest": "string",
 <% elsif attribute.token? -%>
   "<%= attribute.name %>": "string",
-<% elsif attribute.reference? -%>
-  "<%= attribute.name %>": "<%= attribute.name.pluralize %>.md#<%= attribute.name.dasherize %>-model",
 <% elsif !attribute.virtual? -%>
   "<%= attribute.name %>": "<%= attribute.type %>",
 <% end -%>

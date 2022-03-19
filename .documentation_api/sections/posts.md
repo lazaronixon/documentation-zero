@@ -78,6 +78,6 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
   "title": "string",
   "content": "string",
   "published": "boolean",
-  "user": "users.md#user-model",
+  "user": "references",
 }
 ```
