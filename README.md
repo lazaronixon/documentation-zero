@@ -4,7 +4,7 @@ The purpose of documentation zero is to generate a scaffold for rails api docume
 
 ## Example
 
-You can see an example of the generated documentation [here](.documentation_api/README.md).
+You can see an example of the generated documentation [here](.api/README.md).
 
 ## Installation
 
