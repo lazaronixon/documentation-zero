@@ -73,6 +73,7 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 
 ```json
 {
+  "id": "integer",
   "title": "string",
   "content": "string",
   "published": "boolean",

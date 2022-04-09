@@ -71,6 +71,7 @@ This endpoint will return `204 No Content` if successful. No parameters are requ
 
 ```json
 {
+  "id": "integer",
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
   "password_digest": "string",
