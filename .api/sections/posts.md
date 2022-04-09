@@ -67,11 +67,9 @@ This endpoint will return `200 OK` with the current JSON representation of the p
 
 This endpoint will return `204 No Content` if successful. No parameters are required.
 
----
-
 ## Models
 
-###### Post model
+### Post model
 
 ```json
 {
