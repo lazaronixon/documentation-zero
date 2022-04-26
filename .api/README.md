@@ -27,6 +27,7 @@ We use this information to get in touch if you're doing something wrong (so we c
 
 * `User-Agent: Freshbooks (http://freshbooks.com/contact.php)`
 * `User-Agent: Fabian's Ingenious Integration (fabian@example.com)`
+* `User-Agent: FB Android`
 
 If you don't include a `User-Agent` header, you'll get a `400 Bad Request` response.
 
